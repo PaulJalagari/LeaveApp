@@ -28,11 +28,6 @@ public class LeaveAction extends ActionSupport implements Preparable {
 		return SUCCESS;
 	}
 
-	public String deleteLeave() {
-		logger.info("deleteleave method called");
-		leaveManager.deleteLeave(leave.getId());
-		return SUCCESS;
-	}
 
 	public String approveLeave() {
 		logger.info("approveLeave method called");

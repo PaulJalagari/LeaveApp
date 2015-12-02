@@ -8,27 +8,19 @@ import com.leave.dao.LeaveDAO;
 import com.leave.entity.LeaveEntity;
 
 public class LeaveManagerImpl implements LeaveManager {
-	
+
 	private LeaveDAO leaveDAO;
 
-	
 	@Override
 	@Transactional
 	public void addLeave(LeaveEntity leave) {
 		leaveDAO.addLeave(leave);
 	}
 
-	
 	@Override
 	@Transactional
 	public List<LeaveEntity> getAllLeaves() {
 		return leaveDAO.getAllLeaves();
-	}
-
-	@Override
-	@Transactional
-	public void deleteLeave(Integer leaveId) {
-		leaveDAO.deleteLeave(leaveId);
 	}
 
 	@Override

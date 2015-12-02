@@ -18,7 +18,7 @@ table.list, table.list td, table.list th {
 <body>
 
 	<h2>Leave Management System</h2>
-	
+
 
 	<s:form method="post" action="add">
 		<table>
@@ -51,7 +51,6 @@ table.list, table.list td, table.list th {
 				<th align="left">From</th>
 				<th align="left">To</th>
 				<th align="left">Status</th>
-				<th align="left">Actions</th>
 				<th align="left">Approve</th>
 			</tr>
 			<c:forEach items="${leaves}" var="leaves">
@@ -60,7 +59,6 @@ table.list, table.list td, table.list th {
 					<td>${leaves.fromDate}</td>
 					<td>${leaves.toDate}</td>
 					<td>${leaves.status}</td>
-					<td><a href="delete/${leaves.id}">delete</a></td>
 					<td><a href="approve/${leaves.id}">approve</a>
 				</tr>
 			</c:forEach>
