@@ -43,4 +43,11 @@ public class ProfileAction extends ActionSupport implements Preparable {
 		this.user = user;
 	}
 
+	public UserManager getUserManager() {
+		return userManager;
+	}
+
+	public void setUserManager(UserManager userManager) {
+		this.userManager = userManager;
+	}
 }
