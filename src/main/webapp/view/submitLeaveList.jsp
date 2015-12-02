@@ -24,16 +24,16 @@ table.list, table.list td, table.list th {
 		<table>
 
 			<tr>
-				<td><s:textfield key="label.type" name="employee.type" /></td>
+				<td><s:textfield key="label.type" name="leave.type" /></td>
 			</tr>
 			<tr>
-				<td><s:textfield key="label.fromDate" name="employee.fromDate" /></td>
+				<td><s:textfield key="label.fromDate" name="leave.fromDate" /></td>
 			</tr>
 			<tr>
-				<td><s:textfield key="label.toDate" name="employee.toDate" /></td>
+				<td><s:textfield key="label.toDate" name="leave.toDate" /></td>
 			</tr>
 			<tr>
-				<td><s:textfield key="label.status" name="employee.status" /></td>
+				<td><s:textfield key="label.status" name="leave.status" /></td>
 
 			</tr>
 			<tr>
@@ -44,7 +44,7 @@ table.list, table.list td, table.list th {
 
 
 	<h3>Leave Requests</h3>
-	<c:if test="${!empty employees}">
+	<c:if test="${!empty leaves}">
 		<table class="list">
 			<tr>
 				<th align="left">Type of Leave</th>
@@ -54,14 +54,14 @@ table.list, table.list td, table.list th {
 				<th align="left">Actions</th>
 				<th align="left">Approve</th>
 			</tr>
-			<c:forEach items="${employees}" var="emp">
+			<c:forEach items="${leaves}" var="leaves">
 				<tr>
-					<td>${emp.type}</td>
-					<td>${emp.fromDate}</td>
-					<td>${emp.toDate}</td>
-					<td>${emp.status}</td>
-					<td><a href="delete/${emp.id}">delete</a></td>
-					<td><a href="approve/${emp.id}">approve</a>
+					<td>${leaves.type}</td>
+					<td>${leaves.fromDate}</td>
+					<td>${leaves.toDate}</td>
+					<td>${leaves.status}</td>
+					<td><a href="delete/${leaves.id}">delete</a></td>
+					<td><a href="approve/${leaves.id}">approve</a>
 				</tr>
 			</c:forEach>
 		</table>

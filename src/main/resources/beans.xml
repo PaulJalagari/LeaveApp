@@ -15,10 +15,10 @@
 
 	<!-- This bean has been referred from struts.xml file; So type it correctly; -->
 	<!-- Make scope prototype; This is really important. -->
-	<bean name="editEmployeeAction" class="com.leave.controller.EditEmployeeAction"
+	<bean name="leaveAction" class="com.leave.controller.LeaveAction"
 		scope="prototype">
-		<property name="employeeManager">
-			<ref bean="employeeManager" />
+		<property name="leaveManager">
+			<ref bean="leaveManager" />
 		</property>
 	</bean>
 	<bean name="loginAction" class="com.leave.controller.LoginAction"
@@ -34,32 +34,32 @@
 		</property>
 	</bean>
 
-	<!-- These beans are injected automatically by spring context -->
-	<bean id="employeeDAO" class="com.leave.dao.EmployeeDaoImpl">
+	
+	<bean id="leaveDAO" class="com.leave.dao.LeaveDaoImpl">
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
 	<bean id="userDAO" class="com.leave.dao.UserDaoImpl">
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
 
-	<bean id="employeeManager" class="com.leave.service.EmployeeManagerImpl">
-		<property name="employeeDAO" ref="employeeDAO" />
+	<bean id="leaveManager" class="com.leave.service.LeaveManagerImpl">
+		<property name="leaveDAO" ref="leaveDAO" />
 	</bean>
 	<bean id="userManager" class="com.leave.service.UserManagerImpl">
 		<property name="userDAO" ref="userDAO" />
 	</bean>
 
-	<!-- Configure jdbc.properties -->
+	
 	<bean id="propertyConfigurer"
 		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer"
 		p:location="/WEB-INF/jdbc.properties" />
 
-	<!-- Data Source configuration -->
+	
 	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
 		destroy-method="close" p:driverClassName="${jdbc.driverClassName}"
 		p:url="${jdbc.databaseurl}" p:username="${jdbc.username}" p:password="${jdbc.password}" />
 
-	<!-- Configure hibernate session factory -->
+	
 	<bean id="sessionFactory"
 		class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" />
@@ -76,7 +76,7 @@
 			</props>
 		</property>
 	</bean>
-	<!-- Run SQL queries in transactions -->
+	
 	<tx:annotation-driven />
 	<bean id="transactionManager"
 		class="org.springframework.orm.hibernate3.HibernateTransactionManager">

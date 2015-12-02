@@ -5,7 +5,7 @@
 
 <hibernate-configuration>
 	<session-factory>
-		<mapping class="com.leave.entity.EmployeeEntity" />
+		<mapping class="com.leave.entity.LeaveEntity" />
 		<mapping class="com.leave.entity.UserEntity" />
 	</session-factory>
 </hibernate-configuration>

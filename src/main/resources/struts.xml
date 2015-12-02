@@ -4,26 +4,18 @@
 "http://struts.apache.org/dtds/struts-2.0.dtd">
 
 <struts>
-	<!-- devMode is helpful when you want some extra logs for debugging -->
+
 	<constant name="struts.devMode" value="false" />
-	<!-- Global message resource; Otherwise you will have seperate message resource 
-		for each Action -->
+
 	<constant name="struts.custom.i18n.resources" value="messages" />
-	<!-- This is important if you are planning to have slashes in Action URLs 
-		e.g. In this demo, employee is deleted using URL /delete/10 This this is 
-		set to false; then struts will try to find mapping for URL "/10" instead 
-		of "/delete/10" -->
+
 	<constant name="struts.enable.SlashesInActionNames" value="true" />
 
-	<!-- Normal Action mappings are defined here -->
 	<package name="default" namespace="" extends="struts-default">
-		<!-- Two things to Notice: 1) class is set to 'editEmployeeAction' which 
-			is bean defined by Spring context 2) We have given the method to be called 
-			here as well; -->
-		<action name="list" class="editEmployeeAction" method="listEmployees">
-			<result>/view/editEmployeeList.jsp</result>
+		<action name="list" class="leaveAction" method="listLeaves">
+			<result>/view/submitLeaveList.jsp</result>
 		</action>
-		<action name="add" class="editEmployeeAction" method="addEmployee">
+		<action name="add" class="leaveAction" method="addLeave">
 			<result type="redirect">/list</result>
 		</action>
 		<action name="view/login" class="loginAction" method="findUser">
@@ -33,22 +25,22 @@
 		<action name="profile" class="profileAction" method="userProfile">
 			<result name="success">/view/profile.jsp</result>
 		</action>
-		<action name="leave" class="editEmployeeAction" method="listEmployees">
+		<action name="leave" class="leaveAction" method="listLeaves">
 			<result type="redirect">/list</result>
 		</action>
 		<action name="logout">
 			<result>/view/login.jsp</result>
 		</action>
-		<action name="delete/*" class="editEmployeeAction" method="deleteEmployee">
-			<param name="employee.id">{1}</param>
+		<action name="delete/*" class="leaveAction" method="deleteLeave">
+			<param name="leave.id">{1}</param>
 			<result type="redirect">/list</result>
 		</action>
-		<action name="approve/*" class="editEmployeeAction" method="approveLeave">
-			<param name="employee.id">{1}</param>
+		<action name="approve/*" class="leaveAction" method="approveLeave">
+			<param name="leave.id">{1}</param>
 			<result type="redirect">/list</result>
 		</action>
-		<action name="*" class="editEmployeeAction" method="listEmployees">
-			<result>/view/editEmployeeList.jsp</result>
+		<action name="*" class="leaveAction" method="listLeaves">
+			<result>/view/submitLeaveList.jsp</result>
 		</action>
 	</package>
 
