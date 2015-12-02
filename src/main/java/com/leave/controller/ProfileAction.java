@@ -18,7 +18,7 @@ public class ProfileAction extends ActionSupport implements Preparable {
 
 	private UserEntity user;
 
-	private UserManager usermanager;
+	private UserManager userManager;
 
 	@Override
 	public void prepare() throws Exception {
@@ -28,7 +28,7 @@ public class ProfileAction extends ActionSupport implements Preparable {
 
 	public String userProfile() {
 		logger.info("userProfile method called");
-		user = usermanager.userProfile(user.getUserName(), user.getPassword());
+		user = userManager.userProfile(user.getUserName(), user.getPassword());
 		if (user != null)
 			return SUCCESS;
 		else
@@ -41,18 +41,6 @@ public class ProfileAction extends ActionSupport implements Preparable {
 
 	public void setUser(UserEntity user) {
 		this.user = user;
-	}
-
-	public void setUserManager(UserManager userManager) {
-		this.usermanager = userManager;
-	}
-
-	public UserManager getUsermanager() {
-		return usermanager;
-	}
-
-	public void setUsermanager(UserManager usermanager) {
-		this.usermanager = usermanager;
 	}
 
 }
