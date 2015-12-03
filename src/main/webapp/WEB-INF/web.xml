@@ -9,19 +9,13 @@
 	<welcome-file-list>
 		<welcome-file>/WEB-INF/index.jsp</welcome-file>
 	</welcome-file-list>
-
-	<!-- Specify the spring context information location; Default location is 
-		applicationContext.xml file in classpath -->
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
 		<param-value>classpath:beans.xml</param-value>
 	</context-param>
-	<!-- Bootstrap listener to start up and shut down Spring's root WebApplicationContext. -->
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
-	<!-- Handles both the preparation and execution phases of the Struts dispatching 
-		process. -->
 	<filter>
 		<filter-name>struts2</filter-name>
 		<filter-class>org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter</filter-class>
@@ -38,7 +32,6 @@
 		<filter-name>struts2</filter-name>
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
-	<!-- Struts Tag Library Descriptors -->
 	<jsp-config>
 		<taglib>
 			<taglib-uri>/tags/struts-bean</taglib-uri>
