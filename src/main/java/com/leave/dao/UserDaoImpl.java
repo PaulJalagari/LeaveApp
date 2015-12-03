@@ -21,7 +21,7 @@ public class UserDaoImpl implements UserDAO {
 	}
 
 	@Override
-	public boolean findUser(String userName, String password) {
+	public boolean authenticateUser(String userName, String password) {
 		user = currentUser(userName, password);
 		if (user != null)
 			return true;

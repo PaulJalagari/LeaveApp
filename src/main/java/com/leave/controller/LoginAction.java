@@ -21,8 +21,8 @@ public class LoginAction extends ActionSupport implements Preparable {
 	private UserManager userManager;
 
 	public String findUser() {
-		logger.info("findUser method called");
-		if (userManager.findUser(user.getUserName(), user.getPassword()))
+		logger.info("authenticateUser method called");
+		if (userManager.authenticateUser(user.getUserName(), user.getPassword()))
 			return SUCCESS;
 		else
 			return ERROR;

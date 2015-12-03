@@ -18,7 +18,7 @@
 		<action name="add" class="leaveAction" method="addLeave">
 			<result type="redirect">/list</result>
 		</action>
-		<action name="view/login" class="loginAction" method="findUser">
+		<action name="view/login" class="loginAction" method="authenticateUser">
 			<result name="success">welcome.jsp</result>
 			<result name="error">login.jsp</result>
 		</action>

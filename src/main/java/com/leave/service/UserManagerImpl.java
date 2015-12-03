@@ -10,9 +10,9 @@ public class UserManagerImpl implements UserManager {
 
 	@Override
 	@Transactional
-	public boolean findUser(String userName, String password) {
+	public boolean authenticateUser(String userName, String password) {
 
-		if (userDAO.findUser(userName, password)) {
+		if (userDAO.authenticateUser(userName, password)) {
 			return true;
 		} else {
 			return false;
