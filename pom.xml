@@ -2,10 +2,10 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.leave.app</groupId>
-	<artifactId>Spring4Struts2HibernateIntegration</artifactId>
+	<artifactId>LeaveManager</artifactId>
 	<packaging>war</packaging>
 	<version>1.0-SNAPSHOT</version>
-	<name>Spring4Struts2HibernateIntegration Maven Webapp</name>
+	<name>LeaveApp Maven Webapp</name>
 	<url>http://maven.apache.org</url>
 	<repositories>
 		<repository>
