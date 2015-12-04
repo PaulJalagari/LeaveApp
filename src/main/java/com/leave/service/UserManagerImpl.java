@@ -29,9 +29,9 @@ public class UserManagerImpl implements UserManager {
 
 	@Override
 	@Transactional
-	public UserEntity userProfile(String userName, String password) {
+	public UserEntity userProfile(String userName) {
 		// TODO Auto-generated method stub
-		return userDAO.userProfile(userName, password);
+		return userDAO.userProfile(userName);
 
 	}
 

@@ -20,19 +20,19 @@ public class ProfileAction extends ActionSupport implements Preparable {
 
 	private UserManager userManager;
 
-	@Override
-	public void prepare() throws Exception {
-		// TODO Auto-generated method stub
-		user = null;
-	}
-
 	public String userProfile() {
 		logger.info("userProfile method called");
-		user = userManager.userProfile(user.getUserName(), user.getPassword());
+		user = userManager.userProfile(user.getUserName());
 		if (user != null)
 			return SUCCESS;
 		else
 			return ERROR;
+	}
+
+	@Override
+	public void prepare() throws Exception {
+		// TODO Auto-generated method stub
+		user = null;
 	}
 
 	public UserEntity getUser() {
@@ -41,10 +41,6 @@ public class ProfileAction extends ActionSupport implements Preparable {
 
 	public void setUser(UserEntity user) {
 		this.user = user;
-	}
-
-	public UserManager getUserManager() {
-		return userManager;
 	}
 
 	public void setUserManager(UserManager userManager) {

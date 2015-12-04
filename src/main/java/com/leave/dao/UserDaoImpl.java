@@ -34,9 +34,12 @@ public class UserDaoImpl implements UserDAO {
 	}
 
 	@Override
-	public UserEntity userProfile(String userName, String password) {
+	public UserEntity userProfile(String userName) {
 		// TODO Auto-generated method stub
-		return currentUser(userName, password);
+		Query query = sessionFactory.getCurrentSession()
+				.createQuery("from UserEntity where USERNAME=:userName");
+		query.setString("userName", userName);
+		return (UserEntity) query.uniqueResult();
 	}
 
 	public UserEntity getUser() {

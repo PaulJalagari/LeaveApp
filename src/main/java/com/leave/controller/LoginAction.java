@@ -20,7 +20,7 @@ public class LoginAction extends ActionSupport implements Preparable {
 
 	private UserManager userManager;
 
-	public String findUser() {
+	public String authenticateUser() {
 		logger.info("authenticateUser method called");
 		if (userManager.authenticateUser(user.getUserName(), user.getPassword()))
 			return SUCCESS;
@@ -47,5 +47,4 @@ public class LoginAction extends ActionSupport implements Preparable {
 	public void setUserManager(UserManager userManager) {
 		this.userManager = userManager;
 	}
-
 }

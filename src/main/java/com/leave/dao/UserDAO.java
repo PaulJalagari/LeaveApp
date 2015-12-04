@@ -6,6 +6,6 @@ public interface UserDAO {
 	
 	public boolean authenticateUser(String userName, String password);
 	
-	public UserEntity userProfile(String userName,String password);
+	public UserEntity userProfile(String userName);
 
 }

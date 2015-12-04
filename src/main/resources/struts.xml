@@ -24,6 +24,7 @@
 		</action>
 		<action name="profile" class="profileAction" method="userProfile">
 			<result name="success">/view/profile.jsp</result>
+			<result name="error">/view/welcome.jsp</result>
 		</action>
 		<action name="leave" class="leaveAction" method="listLeaves">
 			<result type="redirect">/list</result>
