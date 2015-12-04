@@ -11,18 +11,13 @@ public class UserDaoImpl implements UserDAO {
 	private SessionFactory sessionFactory;
 	private UserEntity user;
 
-	public UserEntity currentUser(String userName, String password) {
-
+	@Override
+	public boolean authenticateUser(String userName, String password) {
 		Query query = sessionFactory.getCurrentSession()
 				.createQuery("from UserEntity where USERNAME=:userName and PASSWORD=:password");
 		query.setString("userName", userName);
 		query.setString("password", password);
-		return (UserEntity) query.uniqueResult();
-	}
-
-	@Override
-	public boolean authenticateUser(String userName, String password) {
-		user = currentUser(userName, password);
+		user = (UserEntity) query.uniqueResult();
 		if (user != null)
 			return true;
 		else
@@ -36,8 +31,7 @@ public class UserDaoImpl implements UserDAO {
 	@Override
 	public UserEntity userProfile(String userName) {
 		// TODO Auto-generated method stub
-		Query query = sessionFactory.getCurrentSession()
-				.createQuery("from UserEntity where USERNAME=:userName");
+		Query query = sessionFactory.getCurrentSession().createQuery("from UserEntity where USERNAME=:userName");
 		query.setString("userName", userName);
 		return (UserEntity) query.uniqueResult();
 	}

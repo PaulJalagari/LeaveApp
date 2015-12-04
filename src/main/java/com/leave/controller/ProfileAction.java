@@ -16,9 +16,9 @@ public class ProfileAction extends ActionSupport implements Preparable {
 
 	private static final Logger logger = Logger.getLogger(ProfileAction.class);
 
-	private UserEntity user;
-
 	private UserManager userManager;
+	
+	private UserEntity user;
 
 	public String userProfile() {
 		logger.info("userProfile method called");
@@ -32,15 +32,7 @@ public class ProfileAction extends ActionSupport implements Preparable {
 	@Override
 	public void prepare() throws Exception {
 		// TODO Auto-generated method stub
-		user = null;
-	}
 
-	public UserEntity getUser() {
-		return user;
-	}
-
-	public void setUser(UserEntity user) {
-		this.user = user;
 	}
 
 	public void setUserManager(UserManager userManager) {
